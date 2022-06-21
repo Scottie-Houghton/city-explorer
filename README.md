@@ -4,21 +4,25 @@
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
+*Allow users to enter a city they want to explore and get info about it.
+
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
 
 ## Getting Started
+* Install React and its Bootstrap and Axios libraries
+
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
 ## Architecture
+* Using HTML, CSS and Javascript and React libraries, including Bootstrap and Axios.
+
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+* 06-20-2022 9:30pm - Application has a GET route to LocationIQ. It has a form you can input a city into. The form retrieves data using LocationIQ's API and renders the city name, latitude, longitude and displays an image of a map of the city.
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
 
 ## Lab: Class 06 - Asynchronous code, and APIs
 
@@ -26,6 +30,6 @@ Estimate of time needed to complete: 5 hours
 
 Start time: 2:00pm
 
-Finish time: _____
+Finish time: 9:00pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 7 hours
