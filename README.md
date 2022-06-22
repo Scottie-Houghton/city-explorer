@@ -22,7 +22,8 @@
 * 06-20-2022 9:30pm - Application has a GET route to LocationIQ. It has a form you can input a city into. The form retrieves data using LocationIQ's API and renders the city name, latitude, longitude and displays an image of a map of the city.
 
 ## Credit and Collaborations
-
+* Lab 06 Partner: KC Hofstetter
+![Lab 06](./images/lab06-WRRC.jpg)
 
 ## Lab: Class 06 - Asynchronous code, and APIs
 
