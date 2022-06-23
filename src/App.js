@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
@@ -12,6 +14,7 @@ class App extends React.Component {
     this.state = {
       city: '',
       cityData: null,
+      weatherForecast: [],
       error: false,
       errorMessage: ''
     };
@@ -28,8 +31,11 @@ class App extends React.Component {
     try {
       let url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`
       let cityInfo = await axios.get(url);
+      let serverUrl = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.city}`;
+      let weatherData = await axios.get(serverUrl);
       this.setState({
         cityData: cityInfo.data[0],
+        weatherForecast: weatherData.data,
         error: false,
         errorMessage: ''
       });
@@ -49,17 +55,27 @@ class App extends React.Component {
           <h1>City Explorer</h1>
         </header>
         <main>
-          <form onSubmit={this.handleSubmit}>
-            <label>Pick a city: 
-              <input type="text" onInput={this.handleInput}/>
-            </label>
-            <button type="submit">Explore!</button>
-          </form>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group>
+              <Form.Label>Pick a city: 
+                <Form.Control type="text" onInput={this.handleInput}/>
+              </Form.Label>
+            </Form.Group>
+            <Button type="submit">Explore!</Button>
+          </Form>
           {this.state.error &&
             <Alert variant="danger">{this.state.errorMessage}</Alert>
           } 
           {this.state.cityData &&
             <Container>
+              <ListGroup>Forecast:
+                <ListGroup.Item>Date: {this.state.weatherForecast[0].date}</ListGroup.Item>
+                <ListGroup.Item>Weather: {this.state.weatherForecast[0].description}</ListGroup.Item>
+                <ListGroup.Item>Date: {this.state.weatherForecast[1].date}</ListGroup.Item>
+                <ListGroup.Item>Weather: {this.state.weatherForecast[1].description}</ListGroup.Item>
+                <ListGroup.Item>Date: {this.state.weatherForecast[2].date}</ListGroup.Item>
+                <ListGroup.Item>Weather: {this.state.weatherForecast[2].description}</ListGroup.Item>
+              </ListGroup>
               <ListGroup>City: {this.state.cityData.display_name}
                 <ListGroup.Item>Latitude: {this.state.cityData.lat}</ListGroup.Item>
                 <ListGroup.Item>Longitude: {this.state.cityData.lon}</ListGroup.Item>
