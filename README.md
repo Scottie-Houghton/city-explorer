@@ -25,10 +25,10 @@
 
 ## Credit and Collaborations
 * Lab 06 Partner: KC Hofstetter
-![Lab 06](./images/lab06-WRRC.jpg)
+![Lab 06](./public/images/lab06-WRRC.jpg)
 
 * Lab 07 Partner: Matthew Larkin
-![Lab 07](.images/lab07-WRRC.jpg)
+![Lab 07](./public/images/lab07-WRRC.jpg)
 
 ## Lab: Class 06 - Asynchronous code, and APIs
 

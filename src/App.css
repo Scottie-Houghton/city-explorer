@@ -15,3 +15,7 @@ main {
 .list-group {
   max-width: 612px;
 }
+
+.list-group-item:nth-child( even ) {
+  margin-bottom: 10px;
+}
