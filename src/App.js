@@ -30,9 +30,10 @@ class App extends React.Component {
     event.preventDefault();
     try {
       let url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`
+      console.log(url);
       let cityInfo = await axios.get(url);
-      let serverUrl = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.city}`;
-      let weatherData = await axios.get(serverUrl);
+      let weatherUrl = `${process.env.REACT_APP_SERVER}/weather?lat=${cityInfo.data[0].lat}&lon=${cityInfo.data[0].lon}`;
+      let weatherData = await axios.get(weatherUrl);
       this.setState({
         cityData: cityInfo.data[0],
         weatherForecast: weatherData.data,
@@ -75,6 +76,10 @@ class App extends React.Component {
                 <ListGroup.Item>Weather: {this.state.weatherForecast[1].description}</ListGroup.Item>
                 <ListGroup.Item>Date: {this.state.weatherForecast[2].date}</ListGroup.Item>
                 <ListGroup.Item>Weather: {this.state.weatherForecast[2].description}</ListGroup.Item>
+                <ListGroup.Item>Date: {this.state.weatherForecast[3].date}</ListGroup.Item>
+                <ListGroup.Item>Weather: {this.state.weatherForecast[3].description}</ListGroup.Item>
+                <ListGroup.Item>Date: {this.state.weatherForecast[4].date}</ListGroup.Item>
+                <ListGroup.Item>Weather: {this.state.weatherForecast[4].description}</ListGroup.Item>
               </ListGroup>
               <ListGroup>City: {this.state.cityData.display_name}
                 <ListGroup.Item>Latitude: {this.state.cityData.lat}</ListGroup.Item>
