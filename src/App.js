@@ -15,6 +15,7 @@ class App extends React.Component {
       city: '',
       cityData: null,
       weatherForecast: [],
+      // moviesPosters: [],
       error: false,
       errorMessage: ''
     };
@@ -34,9 +35,12 @@ class App extends React.Component {
       let cityInfo = await axios.get(url);
       let weatherUrl = `${process.env.REACT_APP_SERVER}/weather?lat=${cityInfo.data[0].lat}&lon=${cityInfo.data[0].lon}`;
       let weatherData = await axios.get(weatherUrl);
+      // let moviesUrl = `${process.env.REACT_APP_SERVER}/movies?query=${this.state.city}`;
+      // let moviesData = await axios.get(moviesUrl);
       this.setState({
         cityData: cityInfo.data[0],
         weatherForecast: weatherData.data,
+        // moviesPosters: moviesData,
         error: false,
         errorMessage: ''
       });
