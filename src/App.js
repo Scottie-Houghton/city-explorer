@@ -15,7 +15,7 @@ class App extends React.Component {
       city: '',
       cityData: null,
       weatherForecast: [],
-      // moviesPosters: [],
+      movies: [],
       error: false,
       errorMessage: ''
     };
@@ -35,12 +35,12 @@ class App extends React.Component {
       let cityInfo = await axios.get(url);
       let weatherUrl = `${process.env.REACT_APP_SERVER}/weather?lat=${cityInfo.data[0].lat}&lon=${cityInfo.data[0].lon}`;
       let weatherData = await axios.get(weatherUrl);
-      // let moviesUrl = `${process.env.REACT_APP_SERVER}/movies?query=${this.state.city}`;
-      // let moviesData = await axios.get(moviesUrl);
+      let moviesUrl = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.city}`;
+      let moviesData = await axios.get(moviesUrl);
       this.setState({
         cityData: cityInfo.data[0],
         weatherForecast: weatherData.data,
-        // moviesPosters: moviesData,
+        movies: moviesData,
         error: false,
         errorMessage: ''
       });
@@ -90,6 +90,26 @@ class App extends React.Component {
                 <ListGroup.Item>Longitude: {this.state.cityData.lon}</ListGroup.Item>
               </ListGroup>
               <Image src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=12`} alt="City Map" />
+              <ListGroup>
+                <ListGroup.Item>{this.state.movies[0].title}</ListGroup.Item>
+                <ListGroup.Item>{this.state.movies[0].description}</ListGroup.Item>
+              </ListGroup>
+              <Image src={`https://image.tmdb.org/t/p/w300/poster_path${this.state.movies[0].src}`} alt={`${this.state.movies[0].title} poster`} />
+              <ListGroup>
+                <ListGroup.Item>{this.state.movies[1].title}</ListGroup.Item>
+                <ListGroup.Item>{this.state.movies[1].description}</ListGroup.Item>
+              </ListGroup>
+              <Image src={`https://image.tmdb.org/t/p/w300/poster_path${this.state.movies[1].src}`} alt={`${this.state.movies[1].title} poster`} />
+              <ListGroup>
+                <ListGroup.Item>{this.state.movies[2].title}</ListGroup.Item>
+                <ListGroup.Item>{this.state.movies[2].description}</ListGroup.Item>
+              </ListGroup>
+              <Image src={`https://image.tmdb.org/t/p/w300/poster_path${this.state.movies[2].src}`} alt={`${this.state.movies[2].title} poster`} />
+              {/* <ListGroup>
+                <ListGroup.Item></ListGroup.Item>
+                <ListGroup.Item></ListGroup.Item>
+              </ListGroup>
+              <Image src={`https://image.tmdb.org/t/p/w300/poster_path${}`} alt={`${}`} /> */}
             </Container>
           }
         </main>
