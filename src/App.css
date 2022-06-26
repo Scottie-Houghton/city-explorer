@@ -19,3 +19,7 @@ main {
 .list-group-item:nth-child( even ) {
   margin-bottom: 10px;
 }
+
+img {
+  margin-bottom: 10px;
+}
