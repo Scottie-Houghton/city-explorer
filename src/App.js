@@ -40,7 +40,7 @@ class App extends React.Component {
       this.setState({
         cityData: cityInfo.data[0],
         weatherForecast: weatherData.data,
-        movies: moviesData,
+        movies: moviesData.data,
         error: false,
         errorMessage: ''
       });
@@ -94,17 +94,17 @@ class App extends React.Component {
                 <ListGroup.Item>{this.state.movies[0].title}</ListGroup.Item>
                 <ListGroup.Item>{this.state.movies[0].description}</ListGroup.Item>
               </ListGroup>
-              <Image src={`https://image.tmdb.org/t/p/w300/poster_path${this.state.movies[0].src}`} alt={`${this.state.movies[0].title} poster`} />
+              <Image src={`https://image.tmdb.org/t/p/w300${this.state.movies[0].src}`} alt={`${this.state.movies[0].title} poster`} />
               <ListGroup>
                 <ListGroup.Item>{this.state.movies[1].title}</ListGroup.Item>
                 <ListGroup.Item>{this.state.movies[1].description}</ListGroup.Item>
               </ListGroup>
-              <Image src={`https://image.tmdb.org/t/p/w300/poster_path${this.state.movies[1].src}`} alt={`${this.state.movies[1].title} poster`} />
+              <Image src={`https://image.tmdb.org/t/p/w300${this.state.movies[1].src}`} alt={`${this.state.movies[1].title} poster`} />
               <ListGroup>
                 <ListGroup.Item>{this.state.movies[2].title}</ListGroup.Item>
                 <ListGroup.Item>{this.state.movies[2].description}</ListGroup.Item>
               </ListGroup>
-              <Image src={`https://image.tmdb.org/t/p/w300/poster_path${this.state.movies[2].src}`} alt={`${this.state.movies[2].title} poster`} />
+              <Image src={`https://image.tmdb.org/t/p/w300${this.state.movies[2].src}`} alt={`${this.state.movies[2].title} poster`} />
               {/* <ListGroup>
                 <ListGroup.Item></ListGroup.Item>
                 <ListGroup.Item></ListGroup.Item>
