@@ -31,6 +31,8 @@
 
 * 06-24-2022 6:45pm - Attempted to get Movies API data to render on my front end by setting up the route and class.
 
+* 06-25-2022 5:30pm - Figured out why the data from the Movie API wasn't working. Fixed the path so that the movie posters would render on the site. Added a litte bit of CSS.
+
 ## Credit and Collaborations
 * Lab 06 Partner: KC Hofstetter
 ![Lab 06](./public/images/lab06-WRRC.jpg)
